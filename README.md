@@ -5,7 +5,7 @@ This project allows running a python script that adds geo-location based access 
 ## Usage
 
 ```
-python geo_access.py --npm-host <npm_host> --npm-port <npm_port> --npm-email <npm_email> --npm-password <npm_password> --npm-accesslist-name <npm_accesslist_name> --allowed-countries <allowed_countries> [--ip-list-file <ip_list_file>]
+python add-npm-geofilter.py --npm-host <npm_host> --npm-port <npm_port> --npm-email <npm_email> --npm-password <npm_password> --npm-accesslist-name <npm_accesslist_name> --allowed-countries <allowed_countries> [--ip-list-file <ip_list_file>]
 ```
 
 * `--npm-host`: The host or IP address of the Nginx Proxy Manager instance to connect to (required)
