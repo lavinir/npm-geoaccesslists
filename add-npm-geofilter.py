@@ -1,5 +1,4 @@
-import npmclient
-import dbip_client
+from npmgeo import npmclient, dbip_client
 import argparse
 import ipaddress
 import pandas as pd
@@ -30,9 +29,8 @@ parser.add_argument('--ip-list-file', help='The file containing the ip list', re
 
 args = parser.parse_args()
 
-npmclient.npmclient.BASE_URL = args.npm_host
-
-npmclient.npmclient.BASE_PORT = args.npm_port
+npmclient.BASE_URL = args.npm_host
+npmclient.BASE_PORT = args.npm_port
 
 # Get IP file data
 if args.ip_list_file is None:
