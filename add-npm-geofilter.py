@@ -49,11 +49,13 @@ access_rule_list = [npmclient.Access_Rule_Client(address=ip_range_to_cidr(row.st
 
 #Get auth token
 print('Getting auth token')
-print(f'Debug: npmclient.BASE_URL: {npmclient.BASE_URL}')
 token = npmclient.get_auth_token(args.npm_email, args.npm_password)
+
+#Getting existing access lists
+existing_rule_id = npmclient.get_access_list_id(args.npm_accesslist_name, token)
 
 #Add access list
 print('Adding access list')
-npmclient.add_access_list(args.npm_accesslist_name, token, *access_rule_list)
+npmclient.add_access_list(args.npm_accesslist_name, token, existing_rule_id, *access_rule_list)
 
 
