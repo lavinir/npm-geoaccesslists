@@ -6,11 +6,12 @@ build-backend = "setuptools.build_meta"
 name = "npmgeo"
 version = "0.1"
 description = "Package to add access list rules to Nginx Proxy Manager"
+long_description = "Package to add access list rules to Nginx Proxy Manager"
 authors = ["Nir Lavi"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/lavinir/npm-geoaccesslists"
 repository = "https://github.com/lavinir/npm-geoaccesslists.git"
-
+long_description_content_type = "text/markdown"
 [tool.poetry.publishing]
 repository = "pypi"
