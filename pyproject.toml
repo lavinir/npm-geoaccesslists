@@ -12,21 +12,5 @@ readme = "README.md"
 homepage = "https://github.com/lavinir/npm-geoaccesslists"
 repository = "https://github.com/lavinir/npm-geoaccesslists.git"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-
-[tool.poetry.dev-dependencies]
-pytest = "^6.2"
-
-[tool.poetry.scripts]
-your-package-name = "your_package_name.main:main"
-
 [tool.poetry.publishing]
 repository = "pypi"
-
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[tool.pytest.ini_options]
-addopts = "-v --cov=your_package_name --cov-report=xml --cov-report=term-missing"
