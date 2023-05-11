@@ -16,6 +16,10 @@ python add-npm-geofilter.py --npm-host <npm_host> --npm-port <npm_port> --npm-em
 * `--allowed-countries`: A comma-separated list of country codes to allow (required)
 * `--ip-list-file`: The path to the CSV file containing the IP location data (optional, if not provided, data will be fetched from db-ip.com)
 
+### Updates
+Each time you run the script without specifying an IP List file, it will attempt to fetch the latest one (from the current month).
+You can use an automation (Cron Job) to have this run once a month and make sure your access rule is running with the most updated IPs
+
 ## Output
 
 The script will output the number of filtered entries and a success message if the access rules were added successfully. Any errors encountered during the process will be printed to the console.
