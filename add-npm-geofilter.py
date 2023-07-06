@@ -31,7 +31,7 @@ parser.add_argument('--ip-list-file', help='The file containing the ip list', re
 args = parser.parse_args()
 
 npmclient.BASE_URL = args.npm_host
-npmclient.BASE_PORT = args.npm_port
+if args.npm_port is not None: npmclient.BASE_PORT = args.npm_port
 
 # Get IP file data
 if args.ip_list_file is None:
