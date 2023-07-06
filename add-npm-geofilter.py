@@ -2,6 +2,7 @@ from npmgeo import npmclient, dbip_client
 import argparse
 import ipaddress
 import pandas as pd
+import getpass
 
 def csv_list(string):
     return string.split(',')
@@ -20,9 +21,9 @@ def ip_range_to_cidr(ip_start, ip_end):
 
 parser = argparse.ArgumentParser(description='Add npm geofilter')
 parser.add_argument('--npm-host', help='The npm host / ip to connect to', required=True)
-parser.add_argument('--npm-port', help='The npm port admin port', required=True)
-parser.add_argument('--npm-email', help='npm admin email address', required=True)
-parser.add_argument('--npm-password', help='npm admin password', required=True)
+parser.add_argument('--npm-port', help='The npm port admin port', required=False)
+parser.add_argument('--npm-email', help='npm admin email address', required=False)
+parser.add_argument('--npm-password', help='npm admin password', required=False)
 parser.add_argument('--npm-accesslist-name', help='The name of the access list', required=True)
 parser.add_argument('--allowed-countries', help='The list of allowed country codes',type=csv_list, required=True)
 parser.add_argument('--ip-list-file', help='The file containing the ip list', required=False)
@@ -46,6 +47,10 @@ print(f'Found {len(filtered_entries)} entries for {args.allowed_countries}')
 
 # create Access_Rule_Client list
 access_rule_list = [npmclient.Access_Rule_Client(address=ip_range_to_cidr(row.start_ip, row.end_ip), directive='allow') for row in filtered_entries.itertuples(index=False)]
+
+#Check if npm email and password are provided
+if args.npm_email is None: args.npm_email = input('Enter npm email: ')
+if args.npm_password is None: args.npm_password = getpass.getpass('Enter npm password: ')
 
 #Get auth token
 print('Getting auth token')
